@@ -116,7 +116,7 @@ main{
     display: flex;
     flex-direction: row;
     padding: 33px;
-    background-image: url('./image/main_fon.jpg');
+    
     justify-content: space-between;
     background-attachment: local;
 }
@@ -186,7 +186,13 @@ main{
     border-radius: 50%;
     position: relative;
     top: 10px;
-
+    transition-property: transform;
+    transition-duration: 0.2s;
+}
+.filter input:hover{
+    transition-property: transform;
+    transition-duration: 0.2s;
+    transform: scale(1.1);
 }
 .search_menu{
     display: flex;
@@ -220,7 +226,15 @@ main{
     background: #ECFFE9;
     border: 1px solid #C7C7C7;
     border-radius: 25px;
+     transition-property: background-color, transform;
+    transition-duration: 0.3s;
 
+}
+.search_menu button:hover{
+    transition-property: background-color, transform;
+    transition-duration: 0.3s;
+    background-color: #f1fdef;
+    transform:scale(1.1)
 }
 .search_menu button img{
     width: 70%;
@@ -274,6 +288,15 @@ main{
     font-size: 20px;
     line-height: 24px;
     color: #969696;
+    transition-property: background-color, transform;
+    transition-duration: 0.4s;
+    
+}
+.card button:hover{
+    transition-property: background-color, transform;
+    transition-duration: 0.4s;
+    background-color: #f8f1be;
+    transform:scale(1.1)
 }
 footer{
     
@@ -433,6 +456,13 @@ color: #FFFFFF;
     align-items: center;
 
     color: #000000;
+    transition-property: transform;
+    transition-duration: 0.3s;
+}
+.btns button:hover{
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transform: scale(1.2);
 }
 .mark h2{
     /* Чи сподобалось вам? */
@@ -467,5 +497,15 @@ color: #FFFFFF;
     border-radius: 27px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     border: none;
+    font-size: 40px;
+    
+    transition-property: transform;
+    transition-duration: 0.3s;
+    
 
+}
+.back_btn:hover{
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transform: scale(1.1);
 }
