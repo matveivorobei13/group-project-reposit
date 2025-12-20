@@ -25,12 +25,13 @@ top: 102px;*/
     justify-content: center;
     flex-direction: column;
     padding: 0px;
+    height: 100%
 
     
     
 }
 .lets_cook h1{
-   
+  
 
     /*position: absolute;
     width: 302px;
@@ -42,9 +43,10 @@ top: 102px;*/
     font-style: normal;
     font-weight: 900;
     font-size: 50px;
+    
     line-height: 61px;
-    position: absolute;
-    top: 100px;
+    
+    
 
     color: #46B970;
 
@@ -60,8 +62,8 @@ top: 102px;*/
     font-weight: 300;
     font-size: 25px;
     line-height: 30px;
-    margin-top: 100px;
     
+
 
     color: #FFFFFF;
 
@@ -87,6 +89,7 @@ top: 102px;*/
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 .banner_img div{
     background-color: black;
@@ -106,6 +109,7 @@ top: 102px;*/
     z-index: 2;
     transition-property: top;
     transition-duration: 0.2s;
+    width: 625px;
 }
 .banner_img img:hover{
     transition-property: top;
