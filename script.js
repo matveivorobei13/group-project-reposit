@@ -1,3 +1,5 @@
+
+import { banner_themes } from './data.js'
 let header = document.querySelector('header')
 let banner_img = document.querySelector('.banner_img img')
 let shadow_img = document.querySelector('.shadow')
@@ -6,32 +8,7 @@ let baner_p = document.querySelector('.lets_cook p')
 let baner_h3 = document.querySelector('.lets_cook h3')
 let lets_cook = document.querySelector('.lets_cook')
 
-let banner_themes = [
-    {
-        bg_color: "linear-gradient(127.6deg, #D4DB58 43.83%, #71752F 71.75%)",
-        image: "image/burger.png",
-        filter: "blur(30px)",
-        h1: "LETS COOK <br> NOW!",
-        p: "На нашому сайті <br> зібрано багато рецептів <br>навіть для тих хто не <br> вміє готувати</p>",
-        h3: "Чому б тобі не спробувати?"
-    },
-    {
-        bg_color: "linear-gradient(127deg,rgba(255, 221, 140, 1) 0%, rgba(64, 47, 10, 1) 100%)",
-        image: "image/coffee2.png",
-        filter: " blur(35px)",
-        h1: "ENJOY <br> YOUR COFFEE",
-        p: "На нашому сайті <br> зібрано найсмачніші <br> кавові рецепти <br> для енергійного дня",
-        h3: "Тримай чашку і вперед!"
-    },
-    {
-        bg_color: "linear-gradient(127deg,rgba(193, 255, 179, 1) 0%, rgba(0, 36, 0, 1) 100%)",
-        image: "image/cookie.png",
-        filter: " blur(45px)",
-        h1: "SWEET <br> TREATS",
-        p: "На нашому сайті <br> зібрано найсолодші <br> рецепти печива <br> навіть для початківців",
-        h3: "Спробуй прямо зараз!",
-    }
-]
+
 let current_theme = 0
 function wait(ms){
     return new Promise((resolve, reject) => {
