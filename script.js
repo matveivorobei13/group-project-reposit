@@ -1,5 +1,6 @@
 
 import { banner_themes } from './data.js'
+import { recepts } from './data.js'
 let header = document.querySelector('header')
 let banner_img = document.querySelector('.banner_img img')
 let shadow_img = document.querySelector('.shadow')
@@ -7,6 +8,7 @@ let baner_h1 = document.querySelector('.lets_cook h1')
 let baner_p = document.querySelector('.lets_cook p')
 let baner_h3 = document.querySelector('.lets_cook h3')
 let lets_cook = document.querySelector('.lets_cook')
+let recepts_cards = document.querySelector('.dish_cards')
 
 
 let current_theme = 0
@@ -65,3 +67,25 @@ async function change_theme(){
 change_theme()
 
 setInterval(change_theme, 5000)
+
+recepts.forEach(recept => {
+    let card = document.createElement('div')
+    card.className = "recept_card"
+    card.id = `recept_${recept.id}`
+    let image = document.createElement('img')
+    let name = document.createElement('h3')
+    let button = document.createElement('button')
+    image.id = `recept_img_${recept.id}`
+    image.className = "recept_img"
+    name.id = `recept_name_${recept.id}`
+    name.className = "recept_name"
+    button.id = `recept_btn_${recept.id}`
+    button.id = "recept_btn"
+    recepts_cards.appendChild(card)
+    card.appendChild(image)
+    card.appendChild(name)
+    card.appendChild(button)
+    image.src = recept.img
+    name.innerHTML = recept.title
+    button.innerHTML = "Рецепт"
+});

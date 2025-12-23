@@ -252,7 +252,7 @@ main{
     width: 942px;
 
 }
-.card{
+.recept_card{
     width: 218px;
     height: 311px;
     background: linear-gradient(180deg, #A3CFAD 54.35%, #718C78 100%);
@@ -265,10 +265,10 @@ main{
     margin-bottom: 20px;
 
 }
-.card img{
-    width: 80%
+.recept_card img{
+    height: 40%
 }
-.card h3{
+.recept_card h3{
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -279,7 +279,7 @@ main{
 
 }
 
-.card button{
+.recept_card button{
    
     width: 190px;
     height: 55px;
@@ -296,7 +296,7 @@ main{
     transition-duration: 0.4s;
     
 }
-.card button:hover{
+.recept_card button:hover{
     transition-property: background-color, transform;
     transition-duration: 0.4s;
     background-color: #f8f1be;
@@ -513,3 +513,4 @@ color: #FFFFFF;
     transition-duration: 0.3s;
     transform: scale(1.1);
 }
+
