@@ -17,6 +17,7 @@ let recept_page_name = document.querySelector('.recept_page .name h1')
 let recept_page_ing = document.querySelector('.p1')
 let recept_page_cook = document.querySelector('.p2')
 let back = document.querySelector('.back_btn')
+recept_page.style.opacity = 0
 
 let current_theme = 0
 function wait(ms){
@@ -97,21 +98,55 @@ recepts.forEach(recept => {
     image.src = recept.img
     name.innerHTML = recept.title
     button.innerHTML = "Рецепт"
-    button.addEventListener('click', function() {
+    button.addEventListener('click', async function() {
+        anime ({
+            targets: 'header, main, footer',
+            duration: 800,
+            easing: 'linear',
+            
+            opacity: 0
+        })
+        await wait(800)
+
+        header.style.display = 'none'
+        main.style.display = 'none'
+        footer.style.display = 'none'
         recept_page.style.display = 'flex'
         recept_page_img.src = recept.img
         recept_page_name.innerHTML = recept.title
         recept_page_ing.innerHTML = recept.ingredients
         recept_page_cook.innerHTML = recept.steps
-        header.style.display = 'none'
-        main.style.display = 'none'
-        footer.style.display = 'none'
+
+        anime ({
+            targets: '.recept_page',
+            duration: 800,
+            easing: 'linear',
+            
+            opacity: 1
+        })
+        
+        
     })
 });
-back.addEventListener('click', function(){
+back.addEventListener('click', async function(){
+    anime ({
+            targets: '.recept_page',
+            duration: 800,
+            easing: 'linear',
+            
+            opacity: 0
+        })
+    await wait(800)
+    recept_page.style.display = 'none'
     header.style.display = 'flex'
     main.style.display = 'flex'
     footer.style.display = 'flex'
-    recept_page.style.display = 'none'
+    anime ({
+            targets: 'header, main, footer',
+            duration: 800,
+            easing: 'linear',
+            
+            opacity: 1
+        })
 })
 

@@ -1,3 +1,7 @@
+body{
+    background-color: #000000;
+    padding: 0;
+}
 header{
     display: flex;
     flex-direction: row;
@@ -120,7 +124,7 @@ main{
     display: flex;
     flex-direction: row;
     padding: 33px;
-    
+    background-color: #E9E9E9;
     justify-content: space-between;
     background-attachment: local;
 }
