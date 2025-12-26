@@ -17,6 +17,8 @@ let recept_page_name = document.querySelector('.recept_page .name h1')
 let recept_page_ing = document.querySelector('.p1')
 let recept_page_cook = document.querySelector('.p2')
 let back = document.querySelector('.back_btn')
+let like_btn = document.querySelector('.like_button')
+let liked_recepts = document.querySelector('.like_recepts_div')
 recept_page.style.opacity = 0
 
 let current_theme = 0
@@ -32,7 +34,7 @@ async function change_theme(){
         targets: '.banner_img img',
         easing: 'linear',
         duration: 500,
-        translateY: 100,
+        translateY: -100,
         opacity: 0,
     })
     anime ({
@@ -41,6 +43,12 @@ async function change_theme(){
         duration: 700,
         translateX: -200,
         opacity: 0,
+    })
+    anime ({
+        targets: '.shadow',
+        easing: 'linear',
+        duration: 700,
+        opacity: 0
     })
     await wait(700)
     header.style.background = banner_themes[current_theme].bg_color
@@ -70,13 +78,19 @@ async function change_theme(){
         translateX: 0,
         opacity: 1,
     })
+    anime ({
+        targets: '.shadow',
+        easing: 'linear',
+        duration: 700,
+        opacity: 1
+    })
     
 }
 change_theme()
 
 setInterval(change_theme, 5000)
 
-
+let current_recept;
 
 recepts.forEach(recept => {
     let card = document.createElement('div')
@@ -90,7 +104,7 @@ recepts.forEach(recept => {
     name.id = `recept_name_${recept.id}`
     name.className = "recept_name"
     button.id = recept.id
-    
+    card.style.background = recept.bg
     recepts_cards.appendChild(card)
     card.appendChild(image)
     card.appendChild(name)
@@ -99,6 +113,7 @@ recepts.forEach(recept => {
     name.innerHTML = recept.title
     button.innerHTML = "Рецепт"
     button.addEventListener('click', async function() {
+        current_recept = recept.id - 1
         anime ({
             targets: 'header, main, footer',
             duration: 800,
@@ -116,6 +131,7 @@ recepts.forEach(recept => {
         recept_page_name.innerHTML = recept.title
         recept_page_ing.innerHTML = recept.ingredients
         recept_page_cook.innerHTML = recept.steps
+        recept_page.style.background = recept.bg
 
         anime ({
             targets: '.recept_page',
@@ -127,6 +143,7 @@ recepts.forEach(recept => {
         
         
     })
+    
 });
 back.addEventListener('click', async function(){
     anime ({
@@ -150,3 +167,21 @@ back.addEventListener('click', async function(){
         })
 })
 
+like_btn.addEventListener('click', function(){
+        let liked_card = document.createElement('div')
+        liked_card.className = 'liked_card'
+        let img_liked_card = document.createElement('img')
+        let ikon_name = document.createElement('div')
+        let open_like_recept = document.createElement('button')
+        ikon_name.className = 'ikon_name'
+        let name = document.createElement('h3')
+        liked_card.appendChild(ikon_name)
+        ikon_name.appendChild(img_liked_card)
+        ikon_name.appendChild(name)
+        liked_card.appendChild(open_like_recept)
+        img_liked_card.src = recepts[current_recept].img
+        liked_recepts.appendChild(liked_card)
+        liked_card.style.background = recepts[current_recept].bg
+        name.innerHTML = recepts[current_recept].title
+        open_like_recept.innerHTML = 'рецепт'
+    })
