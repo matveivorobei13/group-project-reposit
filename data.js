@@ -37,7 +37,8 @@ export let recepts = [
     dificult: "Легка",
     isNew: true,
     img: "image/burger.png",
-    bg: 'linear-gradient(135deg, #8E3200 0%, #FFB26B 100%)'
+    bg: 'linear-gradient(135deg, #8E3200 0%, #FFB26B 100%)',
+    like: false
    },
     {
     title: "Капучіно",
@@ -50,7 +51,8 @@ export let recepts = [
     dificult: "Легка",
     isNew: true,
     img: "image/coffee2.png",
-    bg: 'linear-gradient(135deg, #6F4E37 0%, #C7A17A 100%)'
+    bg: 'linear-gradient(135deg, #6F4E37 0%, #C7A17A 100%)',
+    like: false
   },
   {
     title: "Шоколадне печиво",
@@ -63,7 +65,8 @@ export let recepts = [
     dificult: "Легка",
     isNew: false,
     img: "image/cookie.png",
-    bg: 'linear-gradient(135deg, #FCEABB 0%, #F8B500 100%)'
+    bg: 'linear-gradient(135deg, #FCEABB 0%, #F8B500 100%)',
+    like: false
   },
   {
     title: "Салат Цезар",
@@ -76,7 +79,8 @@ export let recepts = [
     dificult: "Легка",
     isNew: true,
     img: "image/cesar.png",
-    bg: 'linear-gradient(135deg, #56AB2F 0%, #A8E063 100%)'
+    bg: 'linear-gradient(135deg, #56AB2F 0%, #A8E063 100%)',
+    like: false
   },
   {
     title: "Піца Маргарита",
@@ -89,7 +93,8 @@ export let recepts = [
     dificult: "Складна",
     isNew: true,
     img: "image/pizza_margarita.png",
-    bg: 'linear-gradient(135deg, #FAD961 0%, #F76B1C 100%)'
+    bg: 'linear-gradient(135deg, #FAD961 0%, #F76B1C 100%)',
+    like: false
   },
   {
     title: "Смузі з бананом та ягодами",
@@ -102,7 +107,8 @@ export let recepts = [
     dificult: "Легка",
     isNew: true,
     img: "image/smoothie.png",
-    bg: 'linear-gradient(135deg, #FF9A9E 0%, #FAD0C4 100%)'
+    bg: 'linear-gradient(135deg, #FF9A9E 0%, #FAD0C4 100%)',
+    like: false
   },
   {
     title: "Омлет з овочами",
@@ -115,7 +121,8 @@ export let recepts = [
     dificult: "Легка",
     isNew: true,
     img: "image/omlet.png",
-    bg: 'linear-gradient(135deg, #FDEB71 0%, #F8D800 100%)'
+    bg: 'linear-gradient(135deg, #FDEB71 0%, #F8D800 100%)',
+    like: false
 },
 {
     title: "Суп-пюре з гарбуза",
@@ -128,7 +135,8 @@ export let recepts = [
     dificult: "Складна",
     isNew: false,
     img: "image/pumpkin_soup.png",
-    bg: 'linear-gradient(135deg, #F2994A 0%, #EB5757 100%)'
+    bg: 'linear-gradient(135deg, #F2994A 0%, #EB5757 100%)',
+    like: false
 },
 {
     title: "Тост з авокадо",
@@ -141,7 +149,8 @@ export let recepts = [
     dificult: "Легка",
     isNew: true,
     img: "image/avocado_toast.png",
-    bg: 'linear-gradient(135deg, #9BE15D 0%, #00E3AE 100%)'
+    bg: 'linear-gradient(135deg, #9BE15D 0%, #00E3AE 100%)',
+    like: false
 },
 {
     title: "Макарони з соусом Болоньєзе",
@@ -154,6 +163,7 @@ export let recepts = [
     dificult: "Складна",
     isNew: false,
     img: "image/spageti.png",
-    bg: 'linear-gradient(135deg, #F2994A 0%, #F2C94C 100%)'
+    bg: 'linear-gradient(135deg, #F2994A 0%, #F2C94C 100%)',
+    like: false
 }
 ]

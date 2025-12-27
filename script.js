@@ -167,24 +167,67 @@ back.addEventListener('click', async function(){
         })
 })
 
+let liked_recepts_list = []
+let liked_cards = []
 like_btn.addEventListener('click', function(){
-        let liked_card = document.createElement('div')
-        liked_card.className = 'liked_card'
-        let img_liked_card = document.createElement('img')
-        let ikon_name = document.createElement('div')
-        let open_like_recept = document.createElement('button')
-        let delete_like_recept = document.createElement('button')
-        ikon_name.className = 'ikon_name'
-        let name = document.createElement('h3')
-        liked_card.appendChild(ikon_name)
-        ikon_name.appendChild(img_liked_card)
-        ikon_name.appendChild(name)
-        liked_card.appendChild(open_like_recept)
-        liked_card.appendChild(delete_like_recept)
-        img_liked_card.src = recepts[current_recept].img
-        liked_recepts.appendChild(liked_card)
-        liked_card.style.background = recepts[current_recept].bg
-        name.innerHTML = recepts[current_recept].title
-        open_like_recept.innerHTML = 'Рецепт'
-        delete_like_recept.innerHTML = 'Видалити'
+        if(recepts[current_recept].like === false){
+            recepts[current_recept].like = true
+            liked_recepts_list.push(current_theme)
+            let liked_card = document.createElement('div')
+            liked_card.className = 'liked_card'
+            let img_liked_card = document.createElement('img')
+            let ikon_name = document.createElement('div')
+            let open_like_recept = document.createElement('button')
+            open_like_recept.className = current_recept
+            let delete_like_recept = document.createElement('button')
+            ikon_name.className = 'ikon_name'
+            let name = document.createElement('h3')
+            liked_card.appendChild(ikon_name)
+            ikon_name.appendChild(img_liked_card)
+            ikon_name.appendChild(name)
+            liked_card.appendChild(open_like_recept)
+            liked_card.appendChild(delete_like_recept)
+            img_liked_card.src = recepts[current_recept].img
+            liked_recepts.appendChild(liked_card)
+            liked_card.style.background = recepts[current_recept].bg
+            name.innerHTML = recepts[current_recept].title
+            open_like_recept.innerHTML = 'Рецепт'
+            delete_like_recept.innerHTML = 'Видалити'
+            liked_cards.push(liked_card)
+            open_like_recept.addEventListener('click', async function() {
+                current_recept = open_like_recept.className
+                anime ({
+                    targets: 'header, main, footer',
+                    duration: 800,
+                    easing: 'linear',
+                    
+                    opacity: 0
+                })
+                await wait(800)
+
+                header.style.display = 'none'
+                main.style.display = 'none'
+                footer.style.display = 'none'
+                recept_page.style.display = 'flex'
+                recept_page_img.src = recepts[current_recept].img
+                recept_page_name.innerHTML = recepts[current_recept].title
+                recept_page_ing.innerHTML = recepts[current_recept].ingredients
+                recept_page_cook.innerHTML = recepts[current_recept].steps
+                recept_page.style.background = recepts[current_recept].bg
+
+                anime ({
+                    targets: '.recept_page',
+                    duration: 800,
+                    easing: 'linear',
+                    
+                    opacity: 1
+                })
+                
+                
+            })
+            delete_like_recept.addEventListener('click', function() {
+                liked_card.remove()
+            })
+            
+        }
     })
