@@ -173,15 +173,18 @@ like_btn.addEventListener('click', function(){
         let img_liked_card = document.createElement('img')
         let ikon_name = document.createElement('div')
         let open_like_recept = document.createElement('button')
+        let delete_like_recept = document.createElement('button')
         ikon_name.className = 'ikon_name'
         let name = document.createElement('h3')
         liked_card.appendChild(ikon_name)
         ikon_name.appendChild(img_liked_card)
         ikon_name.appendChild(name)
         liked_card.appendChild(open_like_recept)
+        liked_card.appendChild(delete_like_recept)
         img_liked_card.src = recepts[current_recept].img
         liked_recepts.appendChild(liked_card)
         liked_card.style.background = recepts[current_recept].bg
         name.innerHTML = recepts[current_recept].title
-        open_like_recept.innerHTML = 'рецепт'
+        open_like_recept.innerHTML = 'Рецепт'
+        delete_like_recept.innerHTML = 'Видалити'
     })

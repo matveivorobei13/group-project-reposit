@@ -581,7 +581,7 @@ color: #FFFFFF;
 }
 .liked_card{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     width: 80%;
     
@@ -621,4 +621,12 @@ color: #FFFFFF;
     width: 40%;
     height: 40px;
     margin-bottom: 15px;
+    transition-property: transform, background-color;
+    transition-duration: 0.3s;
+}
+.liked_card button:hover{
+    transition-property: transform, background-color;
+    transition-duration: 0.3s;
+    transform: scale(1.1);
+    background-color: #f8f1be;
 }
