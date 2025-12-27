@@ -227,6 +227,7 @@ like_btn.addEventListener('click', function(){
             })
             delete_like_recept.addEventListener('click', function() {
                 liked_card.remove()
+                recepts[current_recept].like = false
             })
             
         }
