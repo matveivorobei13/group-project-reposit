@@ -1,6 +1,6 @@
 
 import { banner_themes } from './data.js'
-import { recepts } from './data.js'
+import { recepts_data } from './data.js'
 let header = document.querySelector('header')
 let main = document.querySelector('main')
 let footer = document.querySelector('footer')
@@ -20,6 +20,72 @@ let back = document.querySelector('.back_btn')
 let like_btn = document.querySelector('.like_button')
 let liked_recepts = document.querySelector('.like_recepts_div')
 recept_page.style.opacity = 0
+
+let recepts = JSON.parse(localStorage.getItem('recepts')) || recepts_data
+
+
+
+recepts.forEach(recept => {
+    if(recept.like === true){
+            let saved_liked_card = document.createElement('div')
+            saved_liked_card.className = 'liked_card'
+            let saved_img_liked_card = document.createElement('img')
+            let saved_ikon_name = document.createElement('div')
+            let saved_open_like_recept = document.createElement('button')
+            saved_open_like_recept.className = recept.id - 1
+            let saved_delete_like_recept = document.createElement('button')
+            saved_ikon_name.className = 'ikon_name'
+            let saved_name = document.createElement('h3')
+            saved_liked_card.appendChild(saved_ikon_name)
+            saved_ikon_name.appendChild(saved_img_liked_card)
+            saved_ikon_name.appendChild(saved_name)
+            saved_liked_card.appendChild(saved_open_like_recept)
+            saved_liked_card.appendChild(saved_delete_like_recept)
+            saved_img_liked_card.src = recept.img
+            liked_recepts.appendChild(saved_liked_card)
+            saved_liked_card.style.background = recept.bg
+            saved_name.innerHTML = recept.title
+            saved_open_like_recept.innerHTML = 'Рецепт'
+            saved_delete_like_recept.innerHTML = 'Видалити'
+            /*liked_cards.push(liked_card)*/
+            saved_open_like_recept.addEventListener('click', async function() {
+                current_recept = saved_open_like_recept.className
+                anime ({
+                    targets: 'header, main, footer',
+                    duration: 800,
+                    easing: 'linear',
+                    
+                    opacity: 0
+                })
+                await wait(800)
+
+                header.style.display = 'none'
+                main.style.display = 'none'
+                footer.style.display = 'none'
+                recept_page.style.display = 'flex'
+                recept_page_img.src = recept.img
+                recept_page_name.innerHTML = recept.title
+                recept_page_ing.innerHTML = recept.ingredients
+                recept_page_cook.innerHTML = recept.steps
+                recept_page.style.background = recept.bg
+
+                anime ({
+                    targets: '.recept_page',
+                    duration: 800,
+                    easing: 'linear',
+                    
+                    opacity: 1
+                })
+                
+                
+            })
+            saved_delete_like_recept.addEventListener('click', function() {
+                saved_liked_card.remove()
+                recept.like = false
+                localStorage.setItem('recepts', JSON.stringify(recepts))
+            })
+        }
+});
 
 let current_theme = 0
 function wait(ms){
@@ -172,7 +238,8 @@ let liked_cards = []
 like_btn.addEventListener('click', function(){
         if(recepts[current_recept].like === false){
             recepts[current_recept].like = true
-            liked_recepts_list.push(current_theme)
+            localStorage.setItem('recepts', JSON.stringify(recepts))
+            /*liked_recepts_list.push(current_theme)*/
             let liked_card = document.createElement('div')
             liked_card.className = 'liked_card'
             let img_liked_card = document.createElement('img')
@@ -228,6 +295,7 @@ like_btn.addEventListener('click', function(){
             delete_like_recept.addEventListener('click', function() {
                 liked_card.remove()
                 recepts[current_recept].like = false
+                localStorage.setItem('recepts', JSON.stringify(recepts))
             })
             
         }
