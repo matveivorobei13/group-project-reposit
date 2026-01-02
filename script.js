@@ -19,6 +19,9 @@ let recept_page_cook = document.querySelector('.p2')
 let back = document.querySelector('.back_btn')
 let like_btn = document.querySelector('.like_button')
 let liked_recepts = document.querySelector('.like_recepts_div')
+let search_button = document.querySelector('.search_menu button')
+let search_input = document.querySelector('.search_menu input')
+let filters_box = document.querySelector('.filter input')
 recept_page.style.opacity = 0
 
 let recepts = JSON.parse(localStorage.getItem('recepts')) || recepts_data
@@ -157,7 +160,7 @@ change_theme()
 setInterval(change_theme, 5000)
 
 let current_recept;
-
+let cards_list = []
 recepts.forEach(recept => {
     let card = document.createElement('div')
     card.className = "recept_card"
@@ -178,6 +181,8 @@ recepts.forEach(recept => {
     image.src = recept.img
     name.innerHTML = recept.title
     button.innerHTML = "Рецепт"
+    card.dataset.title = recept.title.toLowerCase()
+    cards_list.push(card)
     button.addEventListener('click', async function() {
         current_recept = recept.id - 1
         anime ({
@@ -300,3 +305,21 @@ like_btn.addEventListener('click', function(){
             
         }
     })
+search_button.addEventListener('click', function(){
+    if(search_input === ''){
+        cards_list.forEach(card => {
+            card.style.display = 'flex'
+        })
+    }
+    else{
+        cards_list.forEach(card => {
+        if(card.dataset.title.includes(search_input.value.toLowerCase().trim())){
+            card.style.display = 'flex'
+        }
+         else{
+            card.style.display = 'none'
+         }   
+    })
+    }
+    
+})
