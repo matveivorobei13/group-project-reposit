@@ -21,8 +21,14 @@ let like_btn = document.querySelector('.like_button')
 let liked_recepts = document.querySelector('.like_recepts_div')
 let search_button = document.querySelector('.search_menu button')
 let search_input = document.querySelector('.search_menu input')
-let filters_box = document.querySelector('.filter input')
-recept_page.style.opacity = 0
+let filters_box = document.querySelectorAll('.filter input')
+
+filters_box.forEach(filter => {
+    filter.checked = true
+    filter.addEventListener('change', function(){
+        cardsRender()
+    })
+})
 
 let recepts = JSON.parse(localStorage.getItem('recepts')) || recepts_data
 
@@ -163,6 +169,7 @@ let current_recept;
 let cards_list = []
 recepts.forEach(recept => {
     let card = document.createElement('div')
+    card.dataset.id = recept.id - 1
     card.className = "recept_card"
     card.id = `recept_${recept.id}`
     let image = document.createElement('img')
@@ -306,7 +313,41 @@ like_btn.addEventListener('click', function(){
         }
     })
 search_button.addEventListener('click', function(){
-    if(search_input === ''){
+    cardsRender()
+    })
+
+function cardsRender(){
+    cards_list.forEach(card => {
+        let searched = undefined
+        let filtered = undefined
+        if(search_input.value === '' || card.dataset.title.includes(search_input.value.toLowerCase().trim())){
+            searched = true
+        }
+        else{
+            searched = false
+        }
+        for(let i = 0; i < filters_box.length; i += 1){
+            if(filters_box[i].checked === false){
+                if(recepts[card.dataset.id][filters_box[i].dataset.filter] === filters_box[i].dataset.filterValue){
+                    filtered = false
+                    break
+                }
+                else{
+                    filtered = true
+                }
+            }
+            else{
+                filtered = true
+            }
+        }
+        if(searched === true && filtered === true){
+            card.style.display = 'flex'
+        }
+        else{
+            card.style.display = 'none'
+        }
+})
+    /*if(search_input === ''){
         cards_list.forEach(card => {
             card.style.display = 'flex'
         })
@@ -320,6 +361,6 @@ search_button.addEventListener('click', function(){
             card.style.display = 'none'
          }   
     })
-    }
+    }*/
     
-})
+}
