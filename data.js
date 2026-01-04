@@ -1,11 +1,11 @@
 export let banner_themes = [
     {
-        bg_color: "linear-gradient(127.6deg, #D4DB58 43.83%, #71752F 71.75%)",
-        image: "image/burger.png",
-        filter: "blur(30px)",
-        h1: "LETS COOK <br> NOW!",
-        p: "На нашому сайті <br> зібрано багато рецептів <br>навіть для тих хто не <br> вміє готувати</p>",
-        h3: "Чому б тобі не спробувати?"
+        bg_color: "linear-gradient(127.6deg, #D4DB58 43.83%, #71752F 71.75%)", //фон баннера
+        image: "image/burger.png", //изображение баннера
+        filter: "blur(30px)", //фильтр для тени изображения
+        h1: "LETS COOK <br> NOW!", //заголовок баннера
+        p: "На нашому сайті <br> зібрано багато рецептів <br>навіть для тих хто не <br> вміє готувати</p>", //опис баннера
+        h3: "Чому б тобі не спробувати?" //подзаголовок баннера
     },
     {
         bg_color: "linear-gradient(127deg,rgba(255, 221, 140, 1) 0%, rgba(64, 47, 10, 1) 100%)",
@@ -22,7 +22,41 @@ export let banner_themes = [
         h1: "SWEET <br> TREATS",
         p: "На нашому сайті <br> зібрано найсолодші <br> рецепти печива <br> навіть для початківців",
         h3: "Спробуй прямо зараз!",
-    }
+    },
+    {
+    bg_color: "linear-gradient(135deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%)",
+    image: "image/pizza_margarita.png",
+    filter: "blur(55px)",
+    h1: "TIME FOR <br> PIZZA!",
+    p: "Домашня піца — <br> це просто, швидко <br> та неймовірно смачно",
+    h3: "Готуємо разом?"
+},
+{
+    bg_color: "linear-gradient(135deg, #A1C4FD 0%, #C2E9FB 100%)",
+    image: "image/smoothie.png",
+    filter: "blur(45px)",
+    h1: "FRESH & <br> HEALTHY",
+    p: "Корисні смузі <br> для енергії, <br> настрою та сили",
+    h3: "Почни день правильно"
+},
+{
+    bg_color: "linear-gradient(135deg, #FDC830 0%, #F37335 100%)",
+    image: "image/spageti.png",
+    filter: "blur(40px)",
+    h1: "PASTA <br> MOOD",
+    p: "Вершкові соуси, <br> гриби та паста <br> як в ресторані",
+    h3: "Смак Італії вдома"
+},
+{
+    bg_color: "linear-gradient(135deg, #84FAB0 0%, #8FD3F4 100%)",
+    image: "image/meatball_soup.png",
+    filter: "blur(45px)",
+    h1: "WARM & <br> COZY",
+    p: "Супи та крем-супи <br> для затишку <br> у будь-яку пору",
+    h3: "Тепло в кожній ложці"
+},
+
+
 ]
 
 export let recepts_data = [
