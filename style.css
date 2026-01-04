@@ -540,6 +540,7 @@ color: #FFFFFF;
     
 
 }
+
 .back_btn:hover{
     transition-property: transform;
     transition-duration: 0.3s;

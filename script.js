@@ -168,6 +168,7 @@ setInterval(change_theme, 5000)
 let current_recept;
 let cards_list = []
 recepts.forEach(recept => {
+    
     let card = document.createElement('div')
     card.dataset.id = recept.id - 1
     card.className = "recept_card"
@@ -248,6 +249,7 @@ back.addEventListener('click', async function(){
 let liked_recepts_list = []
 let liked_cards = []
 like_btn.addEventListener('click', function(){
+        
         if(recepts[current_recept].like === false){
             recepts[current_recept].like = true
             localStorage.setItem('recepts', JSON.stringify(recepts))
@@ -342,9 +344,11 @@ function cardsRender(){
         }
         if(searched === true && filtered === true){
             card.style.display = 'flex'
+            console.log( card.dataset.title + 'show')
         }
         else{
             card.style.display = 'none'
+            console.log( card.dataset.title + 'hide')
         }
 })
     /*if(search_input === ''){
