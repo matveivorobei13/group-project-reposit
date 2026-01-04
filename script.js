@@ -328,7 +328,7 @@ function cardsRender(){
         }
         for(let i = 0; i < filters_box.length; i += 1){
             if(filters_box[i].checked === false){
-                if(recepts[card.dataset.id][filters_box[i].dataset.filter] === filters_box[i].dataset.filterValue){
+                if(recepts[card.dataset.id][filters_box[i].dataset.filter].toLowerCase().trim() === filters_box[i].dataset.filterValue.toLowerCase().trim()){
                     filtered = false
                     break
                 }
