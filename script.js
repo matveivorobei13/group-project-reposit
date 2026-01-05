@@ -168,7 +168,7 @@ setInterval(change_theme, 5000)
 let current_recept;
 let cards_list = []
 recepts.forEach(recept => {
-    
+    console.log(recept.title)
     let card = document.createElement('div')
     card.dataset.id = recept.id - 1
     card.className = "recept_card"
