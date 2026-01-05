@@ -56,37 +56,8 @@ recepts.forEach(recept => {
             saved_name.innerHTML = recept.title
             saved_open_like_recept.innerHTML = 'Рецепт'
             saved_delete_like_recept.innerHTML = 'Видалити'
-            /*liked_cards.push(liked_card)*/
             saved_open_like_recept.addEventListener('click', async function() {
-                current_recept = saved_open_like_recept.className
-                anime ({
-                    targets: 'header, main, footer',
-                    duration: 800,
-                    easing: 'linear',
-                    
-                    opacity: 0
-                })
-                await wait(800)
-
-                header.style.display = 'none'
-                main.style.display = 'none'
-                footer.style.display = 'none'
-                recept_page.style.display = 'flex'
-                recept_page_img.src = recept.img
-                recept_page_name.innerHTML = recept.title
-                recept_page_ing.innerHTML = recept.ingredients
-                recept_page_cook.innerHTML = recept.steps
-                recept_page.style.background = recept.bg
-
-                anime ({
-                    targets: '.recept_page',
-                    duration: 800,
-                    easing: 'linear',
-                    
-                    opacity: 1
-                })
-                
-                
+                showRecept(recept)   
             })
             saved_delete_like_recept.addEventListener('click', function() {
                 saved_liked_card.remove()
@@ -192,35 +163,7 @@ recepts.forEach(recept => {
     card.dataset.title = recept.title.toLowerCase()
     cards_list.push(card)
     button.addEventListener('click', async function() {
-        current_recept = recept.id - 1
-        anime ({
-            targets: 'header, main, footer',
-            duration: 800,
-            easing: 'linear',
-            
-            opacity: 0
-        })
-        await wait(800)
-
-        header.style.display = 'none'
-        main.style.display = 'none'
-        footer.style.display = 'none'
-        recept_page.style.display = 'flex'
-        recept_page_img.src = recept.img
-        recept_page_name.innerHTML = recept.title
-        recept_page_ing.innerHTML = recept.ingredients
-        recept_page_cook.innerHTML = recept.steps
-        recept_page.style.background = recept.bg
-
-        anime ({
-            targets: '.recept_page',
-            duration: 800,
-            easing: 'linear',
-            
-            opacity: 1
-        })
-        
-        
+        showRecept(recept)
     })
     
 });
@@ -253,7 +196,7 @@ like_btn.addEventListener('click', function(){
         if(recepts[current_recept].like === false){
             recepts[current_recept].like = true
             localStorage.setItem('recepts', JSON.stringify(recepts))
-            /*liked_recepts_list.push(current_theme)*/
+            
             let liked_card = document.createElement('div')
             liked_card.className = 'liked_card'
             let img_liked_card = document.createElement('img')
@@ -351,20 +294,35 @@ function cardsRender(){
             console.log( card.dataset.title + 'hide')
         }
 })
-    /*if(search_input === ''){
-        cards_list.forEach(card => {
-            card.style.display = 'flex'
+}
+
+async function showRecept(current){
+    current_recept = current.id - 1
+        anime ({
+            targets: 'header, main, footer',
+            duration: 800,
+            easing: 'linear',
+            
+            opacity: 0
         })
-    }
-    else{
-        cards_list.forEach(card => {
-        if(card.dataset.title.includes(search_input.value.toLowerCase().trim())){
-            card.style.display = 'flex'
-        }
-         else{
-            card.style.display = 'none'
-         }   
-    })
-    }*/
-    
+        await wait(800)
+
+        header.style.display = 'none'
+        main.style.display = 'none'
+        footer.style.display = 'none'
+        recept_page.style.display = 'flex'
+        recept_page_img.src = recepts[current_recept].img
+        recept_page_name.innerHTML = recepts[current_recept].title
+        recept_page_ing.innerHTML = recepts[current_recept].ingredients
+        recept_page_cook.innerHTML = recepts[current_recept].steps
+        recept_page.style.background = recepts[current_recept].bg
+        anime ({
+            targets: '.recept_page',
+            duration: 800,
+            easing: 'linear',
+            
+            opacity: 1
+        })
+        
+        
 }
