@@ -22,7 +22,8 @@ let liked_recepts = document.querySelector('.like_recepts_div')
 let search_button = document.querySelector('.search_menu button')
 let search_input = document.querySelector('.search_menu input')
 let filters_box = document.querySelectorAll('.filter input')
-
+let loader = document.querySelector('.loader')
+loader.style.display = 'none'
 filters_box.forEach(filter => {
     filter.checked = true
     filter.addEventListener('change', function(){
@@ -262,6 +263,7 @@ search_button.addEventListener('click', function(){
     })
 
 function cardsRender(){
+    let empty = true
     cards_list.forEach(card => {
         let searched = undefined
         let filtered = undefined
@@ -287,13 +289,19 @@ function cardsRender(){
         }
         if(searched === true && filtered === true){
             card.style.display = 'flex'
-            console.log( card.dataset.title + 'show')
+            empty = false
         }
         else{
             card.style.display = 'none'
-            console.log( card.dataset.title + 'hide')
+            
         }
 })
+    if(empty === true){
+        loader.style.display = 'block'
+    }
+    else{
+        loader.style.display = 'none'
+    }
 }
 
 async function showRecept(current){
