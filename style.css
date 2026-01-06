@@ -1,6 +1,11 @@
-body{
-    background-color: #000000;
+* {
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+    height: 100%;
 }
 header{
     display: flex;
@@ -30,7 +35,8 @@ top: 102px;*/
     justify-content: center;
     flex-direction: column;
     padding: 0px;
-    height: 100%
+    height: 100%;
+    gap: 25px;
 
     
     
@@ -128,8 +134,10 @@ main{
     padding: 33px;
     background-color: #E9E9E9;
     justify-content: space-between;
-    background-attachment: local;
+    flex: 1;
 }
+
+
 .filters_search_div{
     display: flex;
     flex-direction: column;
@@ -151,8 +159,7 @@ main{
     /* Фільтри */
 
    
-    width: 129px;
-    height: 55px;
+    
     
 
     font-family: 'Inter', sans-serif;
@@ -175,8 +182,7 @@ main{
 .filter label{
     
 
-    width: 181px;
-    height: 33px;
+    
     
 
     font-family: 'Inter';
@@ -520,6 +526,7 @@ color: #FFFFFF;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: 30px;
 }
 .back_btn{
     /* Rectangle 9 */
@@ -639,4 +646,174 @@ color: #FFFFFF;
     width: 100px;
     height: 100px;
     margin-top: 100px;
+}
+
+
+
+@media screen and (max-width: 361px){
+    
+
+main{
+        flex-direction: column;
+        align-items: center;
+    }
+    body{
+        background-color: #000000;
+    }
+    .dish_cards{
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 20px;
+        align-items: center;
+    }
+    .filters_search_div{
+        width: 95%;
+    }
+    .filter input{
+        width: 30px;
+        height: 30px;
+    }
+    .filter{
+        margin-left: 10px;
+    }
+    .filyers_div{
+        width: 100%;
+        padding-top: 40x;
+    }
+    .search_menu{
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+        height: auto;
+    }
+    .search_menu input{
+        width: 70%;
+        height: 50px;
+        font-size: 16px;
+    }
+    .search_menu button{
+        width: 50px;
+        height: 50px;
+    }
+    .banner_img {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .banner_img img{
+        width: 100%;
+        height: auto;
+        top: 60px;
+    }
+    .lets_cook{
+        align-items: center;
+        text-align: center;
+        width: 80%;
+    }
+    footer{
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+    footer p{
+        font-size: 14px;
+    }
+    .name{
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .name h1{
+        font-size: 25px;
+        line-height: 97px;
+    }   
+    .name img{
+        height: auto;
+        width: 80%;
+    }
+    .recept h1{
+        font-size: 40px;
+        line-height: 50px;
+    }
+    .recept h2{
+        font-size: 25px;
+        line-height: 40px;
+    }
+    .recept p{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .recept_menu{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+    .like_button, .back_btn{
+        width: 30%;
+        height: 50px;
+        font-size: 16px;
+    }
+    .liked_card button{
+        width: 60%;
+        height: 30px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 671px) {
+    main{
+        flex-direction: column;
+        align-items: center;
+    }
+    .dish_cards{
+        width: 100%;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        gap: 10px;
+    }
+    .banner_img img{
+        width: 100%;
+        height: auto;
+        top: 80px;
+    }
+    .name{
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .name img{
+        height: auto;
+        width: 80%;
+    }
+    .name h1{
+        font-size: 60px;
+        line-height: 70px;
+    }
+    .recept h1{
+        font-size: 60px;
+        line-height: 70px;
+    }
+    .recept h2{
+        font-size: 40px;
+        line-height: 50px;
+    }
+    .recept p{
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .recept_menu{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+    .like_button, .back_btn{
+        width: 40%;
+        height: 70px;
+        font-size: 24px;
+    }
 }
