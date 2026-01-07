@@ -34,7 +34,7 @@ export let banner_themes = [
 {
     bg_color: "linear-gradient(135deg, #A1C4FD 0%, #C2E9FB 100%)",
     image: "image/smoothie.png",
-    filter: "blur(45px)",
+    filter: "blur(60px)",
     h1: "FRESH & <br> HEALTHY",
     p: "Корисні смузі <br> для енергії, <br> настрою та сили",
     h3: "Почни день правильно"
